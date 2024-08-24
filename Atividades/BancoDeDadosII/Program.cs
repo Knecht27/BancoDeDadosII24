@@ -1,4 +1,14 @@
+using BancoDeDadosII.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connString = builder.Configuration["AulaEntityFramework:ConnectionString"];
+
+//aqui fizemos a configuração do DbContext com
+//o banco de dados espisificos, neste caso
+//o SQLServer
+builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(connString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
