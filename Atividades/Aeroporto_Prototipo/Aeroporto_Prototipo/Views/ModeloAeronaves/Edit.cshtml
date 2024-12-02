@@ -1,0 +1,49 @@
+﻿@model Aeroporto_Prototipo.Models.ModeloAeronave
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ModeloAeronave</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdModelo" />
+            <div class="form-group">
+                <label asp-for="NomeModelo" class="control-label"></label>
+                <input asp-for="NomeModelo" class="form-control" />
+                <span asp-validation-for="NomeModelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnoModelo" class="control-label"></label>
+                <input asp-for="AnoModelo" class="form-control" />
+                <span asp-validation-for="AnoModelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CapacidadePoltronas" class="control-label"></label>
+                <input asp-for="CapacidadePoltronas" class="form-control" />
+                <span asp-validation-for="CapacidadePoltronas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CapacidadeCombustivel" class="control-label"></label>
+                <input asp-for="CapacidadeCombustivel" class="form-control" />
+                <span asp-validation-for="CapacidadeCombustivel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@model Aeroporto_Prototipo.Models.Passagem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Passagem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdPassagem" />
+            <div class="form-group">
+                <label asp-for="NumeroPassagem" class="control-label"></label>
+                <input asp-for="NumeroPassagem" class="form-control" />
+                <span asp-validation-for="NumeroPassagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientePassagem" class="control-label"></label>
+                <select asp-for="ClientePassagem" class="form-control" asp-items="ViewBag.ClientePassagem"></select>
+                <span asp-validation-for="ClientePassagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VooNum" class="control-label"></label>
+                <select asp-for="VooNum" class="form-control" asp-items="ViewBag.VooNum"></select>
+                <span asp-validation-for="VooNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poltrona" class="control-label"></label>
+                <select asp-for="Poltrona" class="form-control" asp-items="ViewBag.Poltrona"></select>
+                <span asp-validation-for="Poltrona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AeroportoDecolagem" class="control-label"></label>
+                <select asp-for="AeroportoDecolagem" class="form-control" asp-items="ViewBag.AeroportoDecolagem"></select>
+                <span asp-validation-for="AeroportoDecolagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AeroportoPouso" class="control-label"></label>
+                <select asp-for="AeroportoPouso" class="form-control" asp-items="ViewBag.AeroportoPouso"></select>
+                <span asp-validation-for="AeroportoPouso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

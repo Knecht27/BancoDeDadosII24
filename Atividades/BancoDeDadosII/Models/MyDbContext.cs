@@ -16,7 +16,8 @@ namespace BancoDeDadosII.Models
         // classes do Model que serão 
         // espelhadas em tabelas do BD
 
-        public DbSet <Pessoa> Pessoas {  get; set; } 
+        public DbSet <Pessoa> Pessoas {  get; set; }
+        public DbSet <endereco> enderecos { get; set; }
 
 
     }

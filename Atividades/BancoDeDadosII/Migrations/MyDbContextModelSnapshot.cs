@@ -40,6 +40,56 @@ namespace BancoDeDadosII.Migrations
 
                     b.ToTable("Pessoas");
                 });
+
+            modelBuilder.Entity("BancoDeDadosII.Models.endereco", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CEP")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Numero")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pais")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("PessoaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Rua")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UF")
+                        .HasColumnType("int");
+
+                    b.Property<string>("cidade")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PessoaId");
+
+                    b.ToTable("enderecos");
+                });
+
+            modelBuilder.Entity("BancoDeDadosII.Models.endereco", b =>
+                {
+                    b.HasOne("BancoDeDadosII.Models.Pessoa", "Pessoa")
+                        .WithMany()
+                        .HasForeignKey("PessoaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pessoa");
+                });
 #pragma warning restore 612, 618
         }
     }
